@@ -1,0 +1,50 @@
+name: allincart-version
+description: "Action to get the allincart version that is matching the current branch. Returns a fallback if no matching branch is found."
+author: "allincart AG"
+branding:
+  color: "blue"
+  icon: "download"
+
+inputs:
+  fallback:
+    description: The fallback that is returned if there's no matching branch
+    default: trunk
+    required: false
+  repo:
+    description: The repo where to look for matching refs
+    default: allincart-org/allincart
+    required: false
+  allincart-github-token:
+    description: Token used for checking out the allincart repository
+    required: false
+    default: ""
+
+outputs:
+  allincart-version:
+    description: The matching allincart version or fallback
+    value: ${{ steps.get-version.outputs.allincart-version }}
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      if: ${{ inputs.allincart-github-token }}
+      run: |
+        git config --global "http.https://github.com/${{ inputs.repo || 'allincart-org/allincart' }}".extraheader "AUTHORIZATION: basic $(echo -n "x-access-token:${{ inputs.allincart-github-token }}" | base64 -w0)"
+
+    - name: Get allincart version
+      id: get-version
+      shell: bash
+      env:
+        REF: "${{ github.ref }}"
+        BASE_REF: "${{ github.base_ref }}"
+        HEAD_REF: "${{ github.head_ref }}"
+        REPO: "${{ inputs.repo || 'allincart-org/allincart' }}"
+        CURRENT_REPO: "${{ github.repository }}"
+        FALLBACK: "${{ inputs.fallback || 'trunk' }}"
+      run: ${GITHUB_ACTION_PATH}/allincart-version.bash
+
+    - shell: bash
+      if: ${{ inputs.allincart-github-token }}
+      run: |
+        git config --global --unset "http.https://github.com/${{ inputs.repo || 'allincart-org/allincart' }}".extraheader
