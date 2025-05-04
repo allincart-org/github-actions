@@ -1,6 +1,6 @@
 name: "Build Extension Zip"
 description: "Builds the extension and uploads a zip of it"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

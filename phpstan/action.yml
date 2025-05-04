@@ -1,6 +1,6 @@
 name: "PHPStan"
 description: "phpstan"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

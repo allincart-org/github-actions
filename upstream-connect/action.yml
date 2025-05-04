@@ -4,7 +4,7 @@ description: |
 
   The input upstream_data needs to be added to the workflow_dispatch event
 
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

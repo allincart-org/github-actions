@@ -1,6 +1,6 @@
 name: cs-fixer
 description: "PHP-CS-Fixer action"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

@@ -1,6 +1,6 @@
 name: "Release Extension to Store"
 description: "Builds the extension and uploads a zip of it to the Allincart Store"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

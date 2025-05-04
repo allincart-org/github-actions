@@ -1,6 +1,6 @@
 name: "Downstream workflow"
 description: "Trigger a downstream worflow in another repository"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

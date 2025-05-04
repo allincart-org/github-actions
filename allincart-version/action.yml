@@ -1,6 +1,6 @@
 name: allincart-version
 description: "Action to get the allincart version that is matching the current branch. Returns a fallback if no matching branch is found."
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

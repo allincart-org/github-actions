@@ -1,6 +1,6 @@
 name: versions
 description: "Action to get the first and latest versions of the current and previous (LTS) major"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

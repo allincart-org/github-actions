@@ -1,6 +1,6 @@
 name: "Setup extension"
 description: "Checkout allincart and extension. Optionally, install dependencies and setup db"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"

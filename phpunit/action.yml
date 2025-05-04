@@ -1,6 +1,6 @@
 name: "PHPUnit"
 description: "phpunit"
-author: "allincart AG"
+author: "shopware AG"
 branding:
   color: "blue"
   icon: "download"
