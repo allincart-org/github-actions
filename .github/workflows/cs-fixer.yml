@@ -27,4 +27,4 @@ jobs:
           if [[ -n "${{ inputs.rules }}" ]]; then
             export RULES="--rules=${{ inputs.rules }}"
           fi
-          php-cs-fixer fix . --dry-run ${RULES} --format=checkstyle --verbose | cs2pr
+          php-cs-fixer fix . --dry-run ${RULES} --format=checkstyle  | cs2pr
