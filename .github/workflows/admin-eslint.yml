@@ -28,7 +28,7 @@ jobs:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: allincart/github-actions/allincart-version@main
+      - uses: allincart-org/github-actions/allincart-version@main
         with:
           fallback: ${{ inputs.allincartVersionFallback }}
           repo: ${{ inputs.allincart-repository }}

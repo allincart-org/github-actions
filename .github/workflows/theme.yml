@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Theme
-        uses: allincart/github-actions/build-zip@main
+        uses: allincart-org/github-actions/build-zip@main
         env:
           NODE_OPTIONS: "--openssl-legacy-provider"
         with:
@@ -38,7 +38,7 @@ jobs:
           - /dev/shm/mysql:/var/lib/mysql
     steps:
       - name: Setup and Install Theme
-        uses: allincart/github-actions/setup-extension@main
+        uses: allincart-org/github-actions/setup-extension@main
         with:
           mysqlVersion: 'skip'
           install: 'true'

@@ -74,7 +74,7 @@ runs:
       run: |
         git config "http.https://github.com/".extraheader "AUTHORIZATION: basic $(echo -n "x-access-token:${{ inputs.token || steps.sts.outputs.token }}" | base64 -w0)"
 
-    - uses: allincart/github-actions/allincart-version@main
+    - uses: allincart-org/github-actions/allincart-version@main
       env:
         GH_TOKEN: ${{ inputs.token || steps.sts.outputs.token }}
       with:

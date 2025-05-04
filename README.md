@@ -11,7 +11,7 @@ Installs PHP-CS-Fixer and runs [PER Coding Style 2.0](https://www.php-fig.org/pe
 ```yaml
 jobs:
     cs:
-        uses: allincart/github-actions/.github/workflows/cs-fixer.yml@main
+        uses: allincart-org/github-actions/.github/workflows/cs-fixer.yml@main
 ```
 
 #### phpstan
@@ -21,7 +21,7 @@ Installs Allincart 6, PHPStan and the extension, then runs PHPStan
 ```yaml
 jobs:
     phpstan:
-        uses: allincart/github-actions/.github/workflows/phpstan.yml@main
+        uses: allincart-org/github-actions/.github/workflows/phpstan.yml@main
         with:
           # Extension name
           extensionName: MyExtensionName
@@ -47,7 +47,7 @@ Runs ESLint on the administration files of the plugin
 ```yaml
 jobs:
     phpstan:
-        uses: allincart/github-actions/.github/workflows/admin-eslint.yml@main
+        uses: allincart-org/github-actions/.github/workflows/admin-eslint.yml@main
         with:
           # Extension name
           extensionName: MyExtensionName
@@ -64,7 +64,7 @@ Runs administration jest tests
 ```yaml
 jobs:
     admin-jest:
-        uses: allincart/github-actions/.github/workflows/admin-jest.yml@main
+        uses: allincart-org/github-actions/.github/workflows/admin-jest.yml@main
         with:
             # Extension Name
             extensionName: MyExtensionName
@@ -77,7 +77,7 @@ jobs:
 ```yaml
 jobs:
   phpunit:
-    uses: allincart/github-actions/.github/workflows/phpunit.yml@main
+    uses: allincart-org/github-actions/.github/workflows/phpunit.yml@main
     with:
       # Extension Name
       extensionName: MyExtensionName
@@ -90,7 +90,7 @@ With Code Coverage with [codecov](https://about.codecov.io/)
 ```yaml
 jobs:
   phpunit:
-    uses: allincart/github-actions/.github/workflows/phpunit.yml@main
+    uses: allincart-org/github-actions/.github/workflows/phpunit.yml@main
     with:
       extensionName: SwagPlatformDemoData
       allincartVersion: 6.5.x
@@ -106,7 +106,7 @@ Builds the extension zip and validates the zip using allincart-cli
 ```yaml
 jobs:
   zip:
-    uses: allincart/github-actions/.github/workflows/build-zip.yml@main
+    uses: allincart-org/github-actions/.github/workflows/build-zip.yml@main
     with:
       # Extension Name
       extensionName: MyExtensionName
@@ -122,7 +122,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    uses: allincart/github-actions/.github/workflows/store-release.yml@main
+    uses: allincart-org/github-actions/.github/workflows/store-release.yml@main
     with:
       extensionName: ${{ github.event.repository.name }}
     secrets:
@@ -139,13 +139,13 @@ input should a JSON array of objects containing the extension name and repositor
 ```yaml
 jobs:
     phpstan:
-        uses: allincart/github-actions/.github/workflows/phpstan.yml@main
+        uses: allincart-org/github-actions/.github/workflows/phpstan.yml@main
         with:
           extensionName: MyExtensionName
           allincartVersion: 6.5.x
           dependencies: |-
             [
-              {"name": "SwagPlatformDemoData", "repo": "git@github.com:allincart/SwagPlatformDemoData.git"}
+              {"name": "SwagPlatformDemoData", "repo": "git@github.com:allincart-org/SwagPlatformDemoData.git"}
             ]
 ```
 
@@ -155,7 +155,7 @@ The secret should be defined in your GitHub repository.
 ```yaml
 jobs:
     phpstan:
-        uses: allincart/github-actions/.github/workflows/phpstan.yml@main
+        uses: allincart-org/github-actions/.github/workflows/phpstan.yml@main
         with:
           extensionName: MyExtensionName
           allincartVersion: 6.5.x
@@ -185,9 +185,9 @@ jobs:
   downstream:
     runs-on: ubuntu-latest
     steps:
-      - uses: allincart/github-actions/downstream@main
+      - uses: allincart-org/github-actions/downstream@main
         with:
-          repo: allincart/actions-test
+          repo: allincart-org/actions-test
           workflow: test
           ref: trunk
 ```
@@ -206,7 +206,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ inputs.upstream_data }}
-        uses: allincart/github-actions/upstream-connect@main
+        uses: allincart-org/github-actions/upstream-connect@main
         with:
           upstream_data: ${{ inputs.upstream_data }}
 ```
@@ -222,7 +222,7 @@ subject: repo:allincart-org/allincart:ref:refs/heads/main
 
 claim_pattern:
   # restrict to a specificy upstream workflow
-  job_workflow_ref: allincart-org/allincart/.github/workflows/downstream.yml@refs/heads/.*
+  job_workflow_ref: allincart-org/allincart-org/.github/workflows/downstream.yml@refs/heads/.*
 
 permissions:
   actions: write

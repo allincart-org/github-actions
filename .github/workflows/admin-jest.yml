@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Extension
-        uses: allincart/github-actions/setup-extension@main
+        uses: allincart-org/github-actions/setup-extension@main
         with:
           allincartVersion: ${{ inputs.allincartVersion }}
           allincartVersionFallback: ${{ inputs.allincartVersionFallback }}

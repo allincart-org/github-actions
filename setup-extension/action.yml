@@ -105,7 +105,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: allincart/github-actions/allincart-version@main
+    - uses: allincart-org/github-actions/allincart-version@main
       with:
         fallback: ${{ inputs.allincartVersionFallback }}
         repo: ${{ inputs.allincart-repository }}
@@ -114,7 +114,7 @@ runs:
       if: ${{ inputs.allincartVersion == '.auto' || inputs.allincartVersion == '' }}
 
     - name: Setup Allincart
-      uses: allincart/setup-allincart@main
+      uses: allincart-org/setup-allincart@main
       with:
         allincart-version: ${{ steps.version.outputs.allincart-version || inputs.allincartVersion }}
         allincart-repository: ${{ inputs.allincart-repository  || 'allincart-org/allincart' }}

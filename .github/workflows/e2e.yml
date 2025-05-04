@@ -55,13 +55,13 @@ jobs:
       SHOPWARE_ACCESS_KEY_ID: ${{ secrets.SHOPWARE_ACCESS_KEY_ID }}
       SHOPWARE_SECRET_ACCESS_KEY: ${{ secrets.SHOPWARE_SECRET_ACCESS_KEY }}
     steps:
-      - uses: allincart/github-actions/allincart-version@main
+      - uses: allincart-org/github-actions/allincart-version@main
         with:
           fallback: ${{ inputs.allincartVersionFallback }}
         id: version
         if: ${{ inputs.allincartVersion == '.auto' || inputs.allincartVersion == '' }}
       - name: Setup Allincart
-        uses: allincart/setup-allincart@v2
+        uses: allincart-org/setup-allincart@v2
         with:
           allincart-version: ${{ steps.version.outputs.allincart-version || inputs.allincartVersion }}
           php-version: ${{ inputs.phpVersion }}

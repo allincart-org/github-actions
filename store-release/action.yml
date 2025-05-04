@@ -34,7 +34,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: allincart/github-actions/build-zip@main
+    - uses: allincart-org/github-actions/build-zip@main
       with:
         extensionName: ${{ inputs.extensionName }}
         skipCheckout: ${{ inputs.skipCheckout }}
