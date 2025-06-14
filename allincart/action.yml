@@ -1,0 +1,59 @@
+name: allincart-version
+description: "Get the AllinCart version matching the current branch. Falls back if no match is found."
+branding:
+  color: "purple"
+  icon: "check-circle"
+
+inputs:
+  fallback:
+    description: The fallback that is returned if there's no matching branch
+    default: trunk
+    required: false
+  repo:
+    description: The repo where to look for matching refs
+    default: allincart-org/allincart
+    required: false
+  allincart-github-token:
+    description: Token used for checking out the allincart repository
+    required: false
+    default: ""
+
+outputs:
+  allincart-version:
+    description: The matching allincart version or fallback
+    value: ${{ steps.get-version.outputs.allincart-version }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: get-version
+      uses: actions/github-script@v7
+      env:
+        FALLBACK: ${{ inputs.fallback }}
+        TARGET_REPO: ${{ inputs.repo }}
+        CURRENT_REF: ${{ github.ref_name }}
+      with:
+        github-token: ${{ inputs.allincart-github-token || github.token }}
+        script: |
+          const fallback = process.env.FALLBACK || 'trunk';
+          const targetRepo = process.env.TARGET_REPO || 'allincart-org/allincart';
+          const currentRef = process.env.CURRENT_REF;
+
+          const [owner, repo] = targetRepo.split('/');
+          try {
+            // Try to get the matching branch
+            const { data: branch } = await github.rest.repos.getBranch({
+              owner,
+              repo,
+              branch: currentRef,
+            });
+
+            if (branch && branch.name) {
+              core.setOutput('allincart-version', branch.name);
+              return;
+            }
+          } catch (err) {
+            core.info(`Branch "${currentRef}" not found in ${targetRepo}, using fallback "${fallback}"`);
+          }
+
+          core.setOutput('allincart-version', fallback);
