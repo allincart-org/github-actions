@@ -121,7 +121,7 @@ runs:
   steps:
 
     # Step 1: Determine allincart version automatically if set to .auto or empty
-    - uses: allincart/github-actions/allincart-version@main
+    - uses: allincart-org/github-actions/allincart-version@main
       if: ${{ inputs.allincartVersion == '.auto' || inputs.allincartVersion == '' }}
       with:
         fallback: ${{ inputs.allincartVersionFallback }}

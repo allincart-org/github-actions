@@ -45,7 +45,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: allincart/github-actions/allincart-version@main
+    - uses: allincart-org/github-actions/allincart-version@main
       with:
         fallback: ${{ inputs.allincartVersionFallback }}
         repo: ${{ inputs.allincart-repository }}
