@@ -131,7 +131,7 @@ runs:
 
     # Step 2: Setup allincart core environment
     - name: Setup AllinCart Core Environment
-      uses: allincart/setup-allincart@main
+      uses: allincart-org/setup-allincart@main
       with:
         allincart-version: ${{ steps.version.outputs.allincart-version || inputs.allincartVersion }}
         allincart-repository: ${{ inputs.allincartRepository }}
